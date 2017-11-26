@@ -35,7 +35,12 @@
 		<c:forEach items="${noticias}" var="n">
 			<tr>
 				<td>${n.titulo}</td>
-				<td><img src="data:image/png;base64,${n.encode}"/></td>
+				<c:if test="${n.encode != ''}">
+					<td><img src="data:image/png;base64,${n.encode}"/></td>
+				</c:if>
+				<c:if test="${n.encode == ''}">
+					<td><img src="${pageContext.request.contextPath}/resources/img/default.png"/></td>
+				</c:if>
 			</tr>
 		</c:forEach>
 		</tbody>
