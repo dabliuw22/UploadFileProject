@@ -24,7 +24,7 @@ public class NoticiaConverterImp implements NoticiaConverter {
 		model.setImagen(noticia.getImagen());
 		model.setNombreImagen(noticia.getNombreImagen());
 		model.setTipoImagen(noticia.getTipoImagen());
-		model.setEncode(Base64.getEncoder().encodeToString(noticia.getImagen()));
+		model.setEncode(noticia.getImagen()!= null?Base64.getEncoder().encodeToString(noticia.getImagen()):"");
 		return model;
 	}
 
